@@ -1,0 +1,111 @@
+.exhibitions {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #141210;
+  background-image: url('/exhibitions-bg.jpg'); /* твоё фото в public/ */
+  background-size: cover;
+  background-position: center;
+}
+
+.exhibitions__body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ВЕРХНИЙ БЛЮР-БОКС с текстом, по центру фото */
+.exhibitions__intro {
+  margin: 36px auto 0;
+  width: calc(100% - 40px);
+  max-width: 760px;
+  padding: 18px 28px;
+  text-align: center;
+  color: #fff;
+  background: rgba(10, 9, 8, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+}
+
+.exhibitions__text {
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+/* НИЖНИЙ БЛЮР с городами, прижат к низу */
+.exhibitions__bottom {
+    --blur: 703px;
+    --fade: 124px;
+    position: relative;
+    z-index: 0;
+    margin-top: auto;
+    width: 100%;
+    padding: var(--fade) 0px 44px;
+    background: linear-gradient(to top, rgb(0 0 0) 0%, rgb(24 24 24) 61%, rgb(0 0 0 / 0%) 100%);
+}
+
+/* тот же блюр, но плавно исчезающий к верху */
+.exhibitions__bottom::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;                           /* под карточками, над фоном градиента */
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  -webkit-mask-image: linear-gradient(to top, #000 35%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 35%, transparent 100%);
+  pointer-events: none;
+}
+
+/* карточки выставок в ряд: лево — центр — право */
+.exhibitions__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+    padding: 0 20px;
+}
+
+.exhibitions__item {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  color: #fff;
+}
+
+.exhibitions__city {
+  font-weight: 700;
+  color: var(--j-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.exhibitions__place { opacity: 0.9; }
+
+/* планшет/мобилка: карточки в столбик */
+@media (max-width: 900px) {
+  .exhibitions__list {
+    grid-template-columns: 1fr;
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 760px) {
+  .exhibitions__bottom { --blur: 28px; --fade: 90px; padding-bottom: 32px; }
+  .exhibitions__intro { margin-top: 24px; width: calc(100% - 32px); padding: 14px 18px; }
+  .exhibitions__list { padding: 0 16px; }
+  .exhibitions__item { padding: 12px 14px; }
+}

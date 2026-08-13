@@ -1,0 +1,167 @@
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 90px 40px;
+  background: rgba(10, 10, 10, 0.72);          /* затемнение */
+  backdrop-filter: blur(10px);                  /* размытие задника */
+  -webkit-backdrop-filter: blur(10px);
+  animation: lightbox-fade 0.25s ease both;
+}
+@keyframes lightbox-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* стрелка назад (закрыть) */
+.lightbox__back {
+    position: absolute;
+    top: 44px;
+    left: 598px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.lightbox__back:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* стрелки листания по бокам */
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  z-index: 2;
+}
+.lightbox__nav:hover { background: rgba(255, 255, 255, 0.2); }
+.lightbox__nav--prev { left: 24px; }
+.lightbox__nav--prev:hover { transform: translateY(-50%) translateX(-3px); }
+.lightbox__nav--next { right: 24px; }
+.lightbox__nav--next:hover { transform: translateY(-50%) translateX(3px); }
+
+/* большое фото по центру */
+.lightbox__content {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 100%;
+  animation: lightbox-zoom 0.3s cubic-bezier(0.2, 0.8, 0.3, 1.1) both;
+}
+@keyframes lightbox-zoom {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 85vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* заглушка, если фото ещё нет */
+.lightbox__placeholder {
+  width: min(70vw, 420px);
+  max-height: 72vh;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 12px;
+}
+.lightbox__placeholder--jeweler {
+  background: var(--j-bg-soft);
+  border: 1px solid var(--j-gold);
+  color: var(--j-gold);
+}
+.lightbox__placeholder--painter {
+  background: var(--p-bg-soft);
+  border: 2px dashed var(--p-accent);
+  color: var(--p-accent);
+}
+.lightbox__placeholder-icon { font-size: 3rem; }
+.lightbox__placeholder-text { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.9rem; }
+
+/* название снизу */
+.lightbox__title {
+  color: #fff;
+  font-size: 1.4rem;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.lightbox--jeweler .lightbox__title { font-family: var(--font-main); letter-spacing: 0.04em; }
+.lightbox--painter .lightbox__title { font-family: var(--font-main); font-size: 1.3rem; }
+
+/* счётчик 3 / 8 */
+.lightbox__counter {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+@media (max-width: 640px) {
+  .lightbox { padding: 70px 16px 30px; }
+  .lightbox__nav { width: 42px; height: 42px; font-size: 24px; }
+  .lightbox__nav--prev { left: 8px; }
+  .lightbox__nav--next { right: 8px; }
+  .lightbox__back { top: 12px; width: 36px; height: 36px; font-size: 20px; }
+.lightbox__back {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+}
+@media (max-width: 1200px) {
+
+  .lightbox__back {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+}

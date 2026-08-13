@@ -1,0 +1,121 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #000;
+  min-height: calc(100vh - 400px);
+}
+
+.half {
+  padding: 46px clamp(24px, 9vw, 174px) 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* вся выключка — влево */
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.half--jeweler {
+  background: radial-gradient(ellipse at 50% 0%, rgba(211, 169, 78, 0.14), transparent 60%), var(--j-bg);
+  color: var(--j-text);
+}
+.half--painter {
+  background: radial-gradient(ellipse at 50% 0%, rgba(198, 95, 63, 0.12), transparent 60%), var(--p-bg);
+  color: var(--p-text);
+}
+
+/* .half--jeweler.is-active { box-shadow: inset 0 -6px 0 var(--j-gold); }
+.half--painter.is-active { box-shadow: inset 0 -6px 0 var(--p-accent); } */
+
+/* Верх: фото слева, текст справа от него */
+.half__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+/* Колонка: фото + кнопка под ним */
+.half__photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: 170px;
+  flex-shrink: 0;
+}
+.half__photo-col .btn { width: 100%; padding: 12px 8px; }
+
+
+.half__avatar {
+      width: 170px;
+    height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  user-select: none;
+}
+.half--jeweler .half__avatar {
+  background: var(--j-bg-soft);
+  border: 1px solid var(--j-gold);
+  border-radius: 14px;
+}
+.half--painter .half__avatar {
+  background: var(--p-bg-soft);
+  border: 3px solid var(--p-accent);
+  border-radius: 24px;}
+    /* transform: rotate(-2deg); */
+    /* box-shadow: 4px 4px 0 var(--p-accent-soft);
+
+
+/* Справа от фото: имя, роль, небольшое описание */
+.half__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: -11px;
+  text-align: left;
+}
+
+.half__name { font-size: 2.2rem; }
+.half--jeweler .half__name { font-family: var(--font-j); font-weight: 600; letter-spacing: 0.06em; }
+.half--painter .half__name { font-family: var(--font-p); font-weight: 700; font-size: 2.6rem; }
+
+.half__role { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+.half--jeweler .half__role { color: var(--j-gold); }
+.half--painter .half__role { color: var(--p-accent); }
+
+.half__desc { font-size: 0.95rem; line-height: 1.55; opacity: 0.85; max-width: 360px; }
+
+.half__text {
+  margin-top: 16px;
+  padding-top: 20px;
+  width: 100%;
+  max-width: 640px;
+  line-height: 1.6;
+  font-size: 0.98rem;
+  opacity: 0.85;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.half--painter .half__text { border-top-color: rgba(43, 35, 32, 0.2); }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .half { padding: 40px 24px; }
+  .half__top { gap: 20px; }
+  .half__avatar { width: 130px; height: 130px; font-size: 44px; }
+  .half__photo-col { width: 130px; }
+}
+@media (max-width: 480px) {
+  .half { padding: 32px 16px 24px; }
+  .half__top { gap: 14px; }
+  .half__avatar { width: 111px; height: 111px; font-size: 36px; }
+  .half__photo-col { width: 108px; }
+  .half__name { font-size: 1.7rem; }
+  .half--painter .half__name { font-size: 2rem; }
+  .half__role { font-size: 0.7rem; letter-spacing: 0.12em; }
+  .half__desc { font-size: 0.9rem; }
+  .half__text { font-size: 0.92rem; }
+}

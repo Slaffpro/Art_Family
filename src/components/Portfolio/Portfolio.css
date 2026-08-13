@@ -1,0 +1,83 @@
+.portfolio {
+  padding-bottom: 31px;
+  background: #101010;
+  color: #fff;
+  transition: background 0.5s ease, color 0.5s ease;
+  scroll-margin-top: -5px;
+}
+.portfolio--jeweler {     background: radial-gradient(ellipse at 50% 0%, rgba(211, 169, 78, 0.14), transparent 60%), var(--j-bg); color: var(--j-text); }
+.portfolio--painter { background: var(--p-bg); color: var(--p-text); }
+
+.portfolio__title {
+  padding: 18px 0;
+  text-align: center;
+  background: var(--ink);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+/* Разделённый вид (никто не выбран) */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #000; }
+.split__half {
+  padding: 28px 24px 40px;      /* было 48/64 — стало компактнее */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;                    /* было 26 */
+  animation: card-in 0.6s both;
+}
+.split__half--jeweler { background: var(--j-bg); animation-delay: 0.15s; height: 103.5%; }
+.split__half--painter { background: var(--p-bg); animation-delay: 0.15s; height: 103.5%; }
+
+.split__name { font-size: 1.4rem; }
+.split__name--jeweler { font-family: var(--font-j); color: var(--j-gold); letter-spacing: 0.05em; }
+.split__name--painter { font-family: var(--font-p); color: var(--p-accent); font-size: 1.7rem; }
+
+/* КОМПАКТНАЯ СЕТКА ПРЕВЬЮ: 4 работы + кнопка помещаются на экран.
+   Хочешь ещё мельче — уменьши max-width (например 380px),
+   хочешь крупнее — увеличь (например 480px). */
+.split .grid--small {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 519px;
+  margin: 0;
+  padding: 0;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+/* подписи под превью чуть мельче, чтобы экономить высоту */
+.split .card__title { font-size: 18px; margin-top: 5px; }
+.split .card--painter .card__title {  margin-top: 5px; }
+
+/* Заголовок в режиме фокуса */
+.portfolio__head { text-align: center; margin: 22px auto -6px; font-size: 2rem; }
+.portfolio__head--jeweler { font-family: var(--font-j); color: var(--j-gold); letter-spacing: 0.05em; }
+.portfolio__head--painter { font-family: var(--font-p); color: var(--p-accent); font-size: 2.3rem; }
+
+/* Сетка работ в развёрнутом виде */
+.grid {
+  max-width: 1600px;
+  margin: 17px auto 0;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 26px;
+}
+
+.portfolio__switch { display: flex; justify-content: center; margin-top: 40px; }
+
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .split .grid--small { grid-template-columns: 1fr; max-width: 260px; }
+}
+
+@media (max-width: 480px) {
+  .split__half { padding: 24px 16px 32px; }
+  .grid { padding: 0 16px; gap: 18px; }
+  .portfolio__head { font-size: 1.6rem; margin-top: 32px; }
+  .portfolio__head--painter { font-size: 1.9rem; }
+}

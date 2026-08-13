@@ -1,0 +1,23 @@
+:root {
+  /* общее */
+  --ink: #0b0b0b;
+
+  /* ювелир: тёмный + золото */
+  --j-bg: #1c2531;
+  --j-bg-soft: #1a2230;
+  --j-gold: #d3a94e;
+  --j-gold-soft: rgba(211, 169, 78, 0.35);
+  --j-text: #efe9da;
+
+  /* художник: тёплый «холст» + терракота */
+  --p-bg: #f7f0e2;
+  --p-bg-soft: #fff8ec;
+  --p-accent: #c65f3f;
+  --p-accent-soft: rgba(198, 95, 63, 0.35);
+  --p-text: #2b2320;
+
+  /* шрифты */
+  --font-main: 'Manrope', system-ui, sans-serif;
+  --font-j: 'Cormorant Garamond', Georgia, serif;
+  --font-p: 'Caveat', cursive;
+}

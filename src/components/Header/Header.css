@@ -1,0 +1,19 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--ink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+      padding: 9px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header__logo { height: 46px; width: auto; display: block; }
+
+.header__logo-fallback {
+  font-family: var(--font-p);
+  font-size: 2rem;
+  color: #fff;
+}

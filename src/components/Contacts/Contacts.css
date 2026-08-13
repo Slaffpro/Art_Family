@@ -1,0 +1,103 @@
+.contacts {
+  background: #141210; /* тёмный, как у первой секции */
+  color: #fff;
+  padding-bottom: 30px;
+}
+
+.contacts__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 20px 0;
+  text-align: center;
+}
+
+.contacts__text {
+  max-width: 682px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.contacts__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.contacts__item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.contacts__item:hover {
+  border-color: var(--j-gold);
+  transform: translateY(-2px);
+}
+
+.contacts__label {
+  font-weight: 700;
+  color: var(--j-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.contacts__value {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+  align-self: center;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contacts__value:hover {
+  color: var(--j-gold);
+  border-color: var(--j-gold);
+}
+
+.contacts__note {
+  margin-top: 32px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+button.contacts__value {
+  background: none;
+  border: none;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+  padding: 0 0 2px;
+}
+
+/* состояние «скопировано» */
+.contacts__value--copy.is-copied,
+.contacts__value--copy.is-copied:hover {
+  color: var(--j-gold);
+  border-color: var(--j-gold);
+}
+
+@media (max-width: 760px) {
+  .contacts__list { grid-template-columns: 1fr; }
+  .contacts__inner { padding-top: 40px; }
+}
+
+
+@media (max-width: 480px) {
+  .contacts__inner { padding: 32px 16px 0; }
+  .contacts__text { margin-bottom: 24px; }
+  .contacts__item { padding: 14px 16px; }
+  .contacts__value { font-size: 0.95rem; }
+}

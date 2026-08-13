@@ -1,0 +1,39 @@
+.card { animation: card-in 0.55s both cubic-bezier(0.2, 0.8, 0.3, 1.1); }
+
+.card__img,
+.card__placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.card__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.card--jeweler .card__placeholder {
+  background: var(--j-bg-soft);
+  border: 1px solid var(--j-gold);
+  color: var(--j-gold);
+}
+.card--painter .card__placeholder {
+  background: var(--p-bg-soft);
+  border: 2px dashed var(--p-accent);
+  color: var(--p-accent);
+}
+
+.card__placeholder-icon { font-size: 2rem; }
+.card__placeholder-text { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; }
+
+.card__title { margin-top: 10px; text-align: center; font-size: 0.95rem; }
+.card--jeweler .card__title { font-size: 1.07rem; letter-spacing: 0.03em; }
+.card--painter .card__title { font-size: 1.07rem; color: black; }
+
+/* карточка кликабельна в развёрнутом виде */
+.card--clickable { cursor: pointer; transition: transform 0.2s ease; }
+.card--clickable:hover { transform: translateY(-4px) scale(1.02); }
