@@ -70,6 +70,7 @@
   margin-top: 32px;
   font-size: 0.9rem;
   opacity: 0.6;
+      letter-spacing: 1px;
 }
 
 button.contacts__value {
