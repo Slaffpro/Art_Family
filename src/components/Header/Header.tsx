@@ -11,7 +11,7 @@ export default function Header() {
       ) : (
         <img
           className="header__logo"
-          src="public/Logo_White.png"
+          src="/Art_Family/Logo_White.png"
           alt="Art Family"
           onError={() => setLogoFailed(true)}
         />
