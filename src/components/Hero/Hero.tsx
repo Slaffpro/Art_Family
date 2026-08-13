@@ -18,7 +18,7 @@ export default function Hero({ activeId, onSelect }: HeroProps) {
         <div className="half__top">
           {/* фото + кнопка под ним */}
           <div className="half__photo-col">
-            <img className="half__avatar" src="/works/Slava.jpg" alt="Вячеслав" />
+            <img className="half__avatar" src="/Art_Family/Slava.jpg" alt="Вячеслав" />
             <button className="btn btn--jeweler" onClick={() => onSelect('jeweler')}>
               Смотреть работы
             </button>
@@ -38,7 +38,7 @@ export default function Hero({ activeId, onSelect }: HeroProps) {
       <article className={`half half--painter ${activeId === 'painter' ? 'is-active' : ''}`}>
         <div className="half__top">
           <div className="half__photo-col">
-             <img className="half__avatar" src="/works/Tany.jpg" alt="Вячеслав" />
+             <img className="half__avatar" src="/Art_Family/Tany.jpg" alt="Вячеслав" />
             <button className="btn btn--painter" onClick={() => onSelect('painter')}>
               Смотреть работы
             </button>
