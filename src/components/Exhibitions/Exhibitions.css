@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   background-color: #141210;
-  background-image: url('/exhibitions-bg.jpg'); /* твоё фото в public/ */
+  background-image: url('works/exhibitions-bg.jpg'); /* твоё фото в public/ */
   background-size: cover;
   background-position: center;
 }
